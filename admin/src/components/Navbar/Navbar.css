@@ -5,9 +5,17 @@
     padding: 8px 4%;
 }
 .navbar .logo {
-    width: max(10%, 80px);
+    width: max(7%, 35px);
 }
 
 .navbar .profile {
-    width: 40px;
+    width: 50px;
+}
+.main-logo {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.main-logo span {
+    font-size: 30px;
 }
