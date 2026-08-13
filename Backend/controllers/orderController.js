@@ -23,7 +23,7 @@ const placeOrder = async (req, res) => {
                 product_data: {
                     name: item.name
                 },
-                unit_amount: item.price
+                unit_amount: Math.round((item.price / 140) * 100)
             },
             quantity: item.quantity
         }))
@@ -34,7 +34,7 @@ const placeOrder = async (req, res) => {
                 product_data: {
                     name: "Delivery Charges"
                 },
-                unit_amount: 100
+                unit_amount: Math.round((100 / 140) * 100)
             },
             quantity: 1
         })
@@ -85,4 +85,21 @@ const verifyOrder = async (req, res) => {
     }
 }
 
-export {placeOrder, verifyOrder}
+// User orders for frontend
+const userOrders = async (req, res) => {
+    try {
+        const orders = await oredrModel.find({userId: req.body.userId});
+        res.json({
+            success: true,
+            data: orders
+        })
+    } catch(err) {
+        console.log(err);
+        res.json({
+            success: false,
+            message: "Error!"
+        })
+    }
+}
+
+export {placeOrder, verifyOrder, userOrders}
