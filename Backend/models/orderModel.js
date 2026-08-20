@@ -28,6 +28,25 @@ const orderScheme = new mongoose.Schema({
     payment: {
         type: Boolean,
         default: false
+    },
+    paymentMethod: {
+        type: String,
+        default: ""
+    },
+    paymentStatus: {
+        type: String,
+        default: "PENDING"
+    },
+    esewaTransactionUuid: {
+        type: String,
+        unique: true,
+        sparse: true
+    },
+    esewaProductCode: {
+        type: String
+    },
+    esewaReferenceId: {
+        type: String
     }
 })
 
