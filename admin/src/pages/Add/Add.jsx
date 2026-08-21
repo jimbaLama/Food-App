@@ -94,8 +94,8 @@ const Add = ({ url }) => {
               <option value="Sandwich">Sandwich</option>
               <option value="Cake">Cake</option>
               <option value="Pure Veg">Pure Veg</option>
-              <option value="Pasta">Pasta</option>
               <option value="Noddles">Noddles</option>
+              <option value="Mo:Mo">Mo:Mo</option>
             </select>
           </div>
           <div className="add-price flex-col">
@@ -105,7 +105,7 @@ const Add = ({ url }) => {
               value={data.price}
               type="number"
               name="price"
-              placeholder="$29"
+              placeholder="Rs.100"
             />
           </div>
         </div>
