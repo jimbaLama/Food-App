@@ -1,0 +1,114 @@
+.payment-success-page,
+.payment-failure-page {
+  align-items: center;
+  background: linear-gradient(135deg, #f4fbf6 0%, #e4f3e7 100%);
+  display: flex;
+  justify-content: center;
+  min-height: 68vh;
+  padding: 32px 18px;
+}
+
+.payment-success-card,
+.payment-failure-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 16px 40px rgba(22, 92, 54, 0.16);
+  max-width: 430px;
+  padding: 42px 34px 34px;
+  text-align: center;
+  width: 100%;
+}
+
+.payment-success-icon,
+.payment-failure-icon {
+  align-items: center;
+  border-radius: 50%;
+  display: inline-flex;
+  font-size: 34px;
+  font-weight: 700;
+  height: 72px;
+  justify-content: center;
+  margin-bottom: 18px;
+  width: 72px;
+}
+
+.payment-success-icon.success {
+  background: #e5f7e9;
+  color: #28a745;
+}
+
+.payment-success-icon.verifying {
+  background: #eef8f0;
+  color: #159447;
+}
+
+.payment-success-icon.error {
+  background: #fff2f1;
+  color: #d94141;
+}
+
+.payment-success-brand,
+.payment-failure-brand {
+  color: #159447;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+  margin: 0 0 8px;
+  text-transform: uppercase;
+}
+
+.payment-success-card h1,
+.payment-failure-card h1 {
+  color: #20352a;
+  font-size: 27px;
+  margin: 0 0 12px;
+}
+
+.payment-success-message,
+.payment-failure-message {
+  color: #66736a;
+  line-height: 1.6;
+  margin: 0 auto 28px;
+  max-width: 320px;
+}
+
+.payment-success-button,
+.payment-failure-button {
+  background: #159447;
+  border: 0;
+  border-radius: 7px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 13px 28px;
+  transition: background 0.2s ease, transform 0.2s ease;
+  width: 100%;
+}
+
+.payment-success-button:hover,
+.payment-failure-button:hover {
+  background: #0b7834;
+  transform: translateY(-1px);
+}
+
+.payment-success-loader {
+  animation: payment-spin 0.8s linear infinite;
+  border: 3px solid #d9efe0;
+  border-radius: 50%;
+  border-top-color: #159447;
+  height: 27px;
+  margin: 4px auto;
+  width: 27px;
+}
+
+@keyframes payment-spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 480px) {
+  .payment-success-card,
+  .payment-failure-card {
+    padding: 34px 24px 28px;
+  }
+}
