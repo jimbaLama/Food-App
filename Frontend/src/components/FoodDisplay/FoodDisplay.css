@@ -12,3 +12,8 @@
     gap: 30px;
     row-gap: 50px;
 }
+.food-display-empty {
+    color: #6b7280;
+    font-size: 17px;
+    margin: 32px 0;
+}

@@ -6,6 +6,8 @@ import { StoreContext } from "../../context/StoreContext";
 
 const Navbar = ({ setShowLogin }) => {
   const [menu, setMenu] = useState("menu");
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
   const { getTotalCartAmount, token, setToken } = useContext(StoreContext);
   const navigate = useNavigate();
 
@@ -14,6 +16,13 @@ const Navbar = ({ setShowLogin }) => {
     setToken("");
     navigate("/");
   }
+
+  const submitSearch = (event) => {
+    event.preventDefault();
+    const query = searchTerm.trim();
+    navigate(query ? `/?search=${encodeURIComponent(query)}#food-display` : "/#food-display");
+    setMenu("home");
+  };
 
   return (
     <div className="navbar">
@@ -51,7 +60,25 @@ const Navbar = ({ setShowLogin }) => {
         </a>
       </ul>
       <div className="navbar-right">
-        <img src={assets.search_icon} alt="" />
+        <form className={`navbar-search ${searchOpen ? "open" : ""}`} onSubmit={submitSearch}>
+          {searchOpen && (
+            <input
+              autoFocus
+              aria-label="Search food"
+              onChange={(event) => setSearchTerm(event.target.value)}
+              placeholder="Search dishes..."
+              value={searchTerm}
+            />
+          )}
+          <button
+            aria-label={searchOpen ? "Search dishes" : "Open food search"}
+            className="navbar-search-button"
+            onClick={() => !searchOpen && setSearchOpen(true)}
+            type={searchOpen ? "submit" : "button"}
+          >
+            <img src={assets.search_icon} alt="" />
+          </button>
+        </form>
         <div className="navbar-search-icon">
           <Link to="/cart">
             <img src={assets.basket_icon} alt="" />
