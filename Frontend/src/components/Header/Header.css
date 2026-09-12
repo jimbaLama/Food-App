@@ -23,7 +23,8 @@
 }
 .header-contents p {
     color: white;
-    font-size: 1.2vw;
+    font-size: 1.5vw;
+    font-style: italic;
 }
 .header-contents button {
     border: none;

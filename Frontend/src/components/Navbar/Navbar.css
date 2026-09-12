@@ -7,6 +7,7 @@
 
 .navbar .logo {
     width: 150px;
+    cursor: pointer;
 }
 .navbar-menu {
     display: flex;
@@ -20,12 +21,13 @@
     align-items: center;
     gap: 40px;
 }
-.navbar button {
+.navbar .signup-button {
     background: transparent;
     font-size: 16px;
     color: #49557e;
     padding: 8px 20px;
     border-radius: 50px;
+    border: 1px solid;
     cursor: pointer;
     transition: 0.3s;
 }
@@ -45,15 +47,15 @@
 .navbar-search {
     align-items: center;
     display: flex;
-    gap: 8px;
+    gap: 0px;
 }
 .navbar-search input {
     border: 1px solid #d7dce7;
-    border-radius: 24px;
     color: #49557e;
     font: inherit;
     outline: none;
     padding: 8px 13px;
+    border-radius: 40px;
     width: 180px;
 }
 .navbar-search input:focus {
@@ -63,12 +65,18 @@
     align-items: center;
     background: transparent;
     border: none;
+    border-radius: 20px;
+    padding: 8px 13px;
     cursor: pointer;
     display: flex;
-    padding: 0;
 }
 .navbar-search-button img {
     width: 24px;
+}
+.cart-icon-image {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
 }
 .navbar-search-icon .dot {
     position: absolute;

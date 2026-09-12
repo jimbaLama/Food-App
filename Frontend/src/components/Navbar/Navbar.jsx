@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { StoreContext } from "../../context/StoreContext";
 
 const Navbar = ({ setShowLogin }) => {
-  const [menu, setMenu] = useState("menu");
+  const [menu, setMenu] = useState("home");
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const { getTotalCartAmount, token, setToken } = useContext(StoreContext);
@@ -15,13 +15,23 @@ const Navbar = ({ setShowLogin }) => {
     localStorage.removeItem("token");
     setToken("");
     navigate("/");
-  }
+  };
 
   const submitSearch = (event) => {
     event.preventDefault();
     const query = searchTerm.trim();
-    navigate(query ? `/?search=${encodeURIComponent(query)}#food-display` : "/#food-display");
-    setMenu("home");
+    navigate(
+      query
+        ? `/?search=${encodeURIComponent(query)}#food-display`
+        : "/#food-display",
+    );
+    setMenu("menu");
+
+    setTimeout(() => {
+      document.getElementById("food-display")?.scrollIntoView({
+        behavior: "smooth",
+      });
+    }, 100);
   };
 
   return (
@@ -37,13 +47,13 @@ const Navbar = ({ setShowLogin }) => {
         >
           home
         </Link>
-        <a
-          href="#explore-menu"
+        <Link
+          to="#explore-menu"
           onClick={() => setMenu("menu")}
           className={menu === "menu" ? "active" : ""}
         >
           menu
-        </a>
+        </Link>
         {/* <a
           href="#app-download"
           onClick={() => setMenu("mobile-app")}
@@ -60,7 +70,10 @@ const Navbar = ({ setShowLogin }) => {
         </a>
       </ul>
       <div className="navbar-right">
-        <form className={`navbar-search ${searchOpen ? "open" : ""}`} onSubmit={submitSearch}>
+        <form
+          className={`navbar-search ${searchOpen ? "open" : ""}`}
+          onSubmit={submitSearch}
+        >
           {searchOpen && (
             <input
               autoFocus
@@ -81,19 +94,25 @@ const Navbar = ({ setShowLogin }) => {
         </form>
         <div className="navbar-search-icon">
           <Link to="/cart">
-            <img src={assets.basket_icon} alt="" />
+            <img src={assets.basket_icon} className="cart-icon-image" alt="" />
           </Link>
           <div className={getTotalCartAmount() === 0 ? "" : "dot"}></div>
         </div>
         {!token ? (
-          <button onClick={() => setShowLogin(true)}>Sign In</button>
+          <button className="signup-button" onClick={() => setShowLogin(true)}>Sign Up</button>
         ) : (
           <div className="navbar-profile">
             <img src={assets.profile_icon} alt="" />
             <ul className="nav-profile-dropdown">
-              <li onClick={()=>navigate('/myorders')}><img src={assets.bag_icon} alt="" /><p>Orders</p></li>
+              <li onClick={() => navigate("/myorders")}>
+                <img src={assets.bag_icon} alt="" />
+                <p>Orders</p>
+              </li>
               <hr />
-              <li onClick={logout}><img src={assets.logout_icon} alt="" /><p>Logout</p></li>
+              <li onClick={logout}>
+                <img src={assets.logout_icon} alt="" />
+                <p>Logout</p>
+              </li>
             </ul>
           </div>
         )}
