@@ -13,6 +13,9 @@ const Navbar = ({ setShowLogin }) => {
 
   const navigate = useNavigate();
   const location = useLocation();
+  const hideSearchOn = ["/cart", "/order", "/myorders"];
+
+  const showSearch = !hideSearchOn.includes(location.pathname);
 
   const logout = () => {
     localStorage.removeItem("token");
@@ -75,7 +78,7 @@ const Navbar = ({ setShowLogin }) => {
         </a>
       </ul>
       <div className="navbar-right">
-        {location.pathname !== "/cart" && (
+        {showSearch && (
           <form
             className={`navbar-search ${searchOpen ? "open" : ""}`}
             onSubmit={submitSearch}
