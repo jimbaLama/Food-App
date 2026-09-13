@@ -1,15 +1,18 @@
 import "./Navbar.css";
 import { assets } from "../../assets/assets";
 import { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { StoreContext } from "../../context/StoreContext";
 
 const Navbar = ({ setShowLogin }) => {
   const [menu, setMenu] = useState("home");
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
-  const { getTotalCartAmount, token, setToken, setCartItems } = useContext(StoreContext);
+  const { getTotalCartAmount, token, setToken, setCartItems } =
+    useContext(StoreContext);
+
   const navigate = useNavigate();
+  const location = useLocation();
 
   const logout = () => {
     localStorage.removeItem("token");
@@ -27,6 +30,7 @@ const Navbar = ({ setShowLogin }) => {
         : "/#food-display",
     );
     setMenu("menu");
+    setSearchTerm("");
 
     setTimeout(() => {
       document.getElementById("food-display")?.scrollIntoView({
@@ -71,28 +75,28 @@ const Navbar = ({ setShowLogin }) => {
         </a>
       </ul>
       <div className="navbar-right">
-        <form
-          className={`navbar-search ${searchOpen ? "open" : ""}`}
-          onSubmit={submitSearch}
-        >
-          {searchOpen && (
+        {location.pathname !== "/cart" && (
+          <form
+            className={`navbar-search ${searchOpen ? "open" : ""}`}
+            onSubmit={submitSearch}
+          >
             <input
-              autoFocus
               aria-label="Search food"
               onChange={(event) => setSearchTerm(event.target.value)}
               placeholder="Search dishes..."
               value={searchTerm}
             />
-          )}
-          <button
-            aria-label={searchOpen ? "Search dishes" : "Open food search"}
-            className="navbar-search-button"
-            onClick={() => !searchOpen && setSearchOpen(true)}
-            type={searchOpen ? "submit" : "button"}
-          >
-            <img src={assets.search_icon} alt="" />
-          </button>
-        </form>
+
+            <button
+              aria-label={searchOpen ? "Search dishes" : "Open food search"}
+              className="navbar-search-button"
+              onClick={() => !searchOpen && setSearchOpen(true)}
+              type={searchOpen ? "submit" : "button"}
+            >
+              <img src={assets.search_icon} alt="" />
+            </button>
+          </form>
+        )}
         <div className="navbar-search-icon">
           <Link to="/cart">
             <img src={assets.basket_icon} className="cart-icon-image" alt="" />
@@ -100,7 +104,9 @@ const Navbar = ({ setShowLogin }) => {
           <div className={getTotalCartAmount() === 0 ? "" : "dot"}></div>
         </div>
         {!token ? (
-          <button className="signup-button" onClick={() => setShowLogin(true)}>Sign Up</button>
+          <button className="signup-button" onClick={() => setShowLogin(true)}>
+            Sign Up
+          </button>
         ) : (
           <div className="navbar-profile">
             <img src={assets.profile_icon} alt="" />
