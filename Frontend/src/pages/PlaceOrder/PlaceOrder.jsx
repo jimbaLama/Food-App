@@ -169,7 +169,7 @@ const handlePayment = async (e) => {
             onChange={onChangeHandler}
             value={data.state}
             type="text"
-            placeholder="State"
+            placeholder="Province"
             required
           />
         </div>
@@ -188,7 +188,7 @@ const handlePayment = async (e) => {
           onChange={onChangeHandler}
           value={data.phone}
           type="text"
-          placeholder="phone"
+          placeholder="Phone"
           required
         />
       </div>

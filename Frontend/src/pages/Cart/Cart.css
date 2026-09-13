@@ -6,7 +6,7 @@
     grid-template-columns: 1fr 1.5fr 1fr 1fr 1fr 0.5fr;
     align-items: center;
     color: grey;
-    font-size: max(1vw, 12px);
+    font-size: max(1vw, 15px);
 }
 .cart-items-item {
     margin: 10px 0px;
@@ -14,6 +14,7 @@
 }
 .cart-items-item img {
     width: 50px;
+    border-radius: 50%;
 }
 .cart hr {
     height: 1px;
@@ -44,6 +45,7 @@
     margin: 10px 0px;
 }
 .cart-total button {
+    font-size: 15px;
     border: none;
     color: white;
     background-color: tomato;

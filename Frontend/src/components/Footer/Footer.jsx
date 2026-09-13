@@ -6,8 +6,8 @@ const Footer = () => {
     <div className="footer" id='footer'>
       <div className="footer-content">
         <div className="footer-content-left">
-            <img src={assets.logo} alt="" />
-            <p>Food tomato center, kathmandu 2026</p>
+            <img src={assets.mitho_bite} className='footer-logo' alt="" />
+            <p>Mitho Food center, kathmandu 2026</p>
             <div className="footer-social-icons">
                 <img src={assets.facebook_icon} alt="" />
                 <img src={assets.twitter_icon} alt="" />
@@ -27,12 +27,12 @@ const Footer = () => {
             <h2>GET IN TOUCH</h2>
             <ul>
                 <li>9808938499</li>
-                <li>foody@gmail.com</li>
+                <li>mithobite@gmail.com</li>
             </ul>
         </div>
       </div>
       <hr />
-      <p className="footer-copyright">Copyright 2026 © Tomato.com - All Right Reserved.</p>
+      <p className="footer-copyright">Copyright 2026 © MithoBite.com - All Right Reserved.</p>
     </div>
   )
 }
