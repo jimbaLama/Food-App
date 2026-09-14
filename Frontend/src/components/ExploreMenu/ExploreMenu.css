@@ -61,3 +61,24 @@
         font-size: 14px;
     }
 }
+
+.explore-menu-all-btn {
+  width: 6vw;
+  min-width: 80px;
+  aspect-ratio: 1;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: max(1.3vw, 16px);
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  background: #fff;
+}
+
+.explore-menu-all-btn.active {
+  border: 3px solid 747474;
+  color: tomato;
+}

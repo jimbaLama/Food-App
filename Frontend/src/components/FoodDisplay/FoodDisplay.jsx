@@ -14,7 +14,7 @@ const FoodDisplay = ({ category, searchTerm = "" }) => {
 
   return (
     <div className="food-display" id="food-display">
-      <h2>{normalizedSearchTerm ? `Search results for “${searchTerm.trim()}”` : "Top dishes near you"}</h2>
+      <h2>{normalizedSearchTerm ? `Search results for “${searchTerm.trim()}”` : "Top dishes for you"}</h2>
       <div className="food-display-list">
         {filteredFoods.map((item) => (
           <FoodItem key={item._id} id={item._id} name={item.name} description={item.description} price={item.price} image={item.image} />
