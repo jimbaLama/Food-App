@@ -35,7 +35,7 @@ const Add = ({ url }) => {
         name: "",
         description: "",
         price: "",
-        category: "Salad",
+        category: "Mo:Mo",
       });
       setImage(false);
       toast.success(response.data.message);
@@ -88,7 +88,7 @@ const Add = ({ url }) => {
           <div className="add-category flex-col">
             <p>Product Category</p>
             <select onChange={onChangeHandler} name="category">
-              <option value="Salad">Salad</option>
+              {/* <option value="Salad">Salad</option> */}
               <option value="Rolls">Rolls</option>
               <option value="Deserts">Deserts</option>
               <option value="Sandwich">Sandwich</option>
@@ -96,6 +96,7 @@ const Add = ({ url }) => {
               <option value="Pure Veg">Pure Veg</option>
               <option value="Noddles">Noddles</option>
               <option value="Mo:Mo">Mo:Mo</option>
+              <option value="Thakali">Thakali</option>
             </select>
           </div>
           <div className="add-price flex-col">

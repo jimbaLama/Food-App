@@ -13,8 +13,9 @@
     color: black;
 }
 .cart-items-item img {
-    width: 50px;
-    border-radius: 50%;
+    width: 60px;
+    /* height: 50px; */
+    border-radius: 10px;
 }
 .cart hr {
     height: 1px;
@@ -23,6 +24,9 @@
 }
 .cart-items-item .cross {
     cursor: pointer;
+}
+.cart-items-item .cross .cart-cross-icon {
+    width: 16px;
 }
 .cart-bottom {
     margin-top: 80px;

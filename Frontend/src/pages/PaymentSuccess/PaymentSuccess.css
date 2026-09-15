@@ -102,6 +102,87 @@
   width: 27px;
 }
 
+.payment-details {
+    width: 100%;
+    margin: 25px 0;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fafafa;
+}
+
+.payment-detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 13px 18px;
+    border-bottom: 1px solid #e5e5e5;
+    font-size: 14px;
+}
+
+.payment-detail-row:last-child {
+    border-bottom: none;
+}
+
+.payment-detail-row span {
+    color: #666;
+}
+
+.payment-detail-row strong {
+    color: #222;
+    text-align: right;
+    word-break: break-word;
+}
+
+.payment-detail-row.total {
+    background: #f0fff5;
+}
+
+.payment-detail-row.total span {
+    color: #168c42;
+    font-weight: 400;
+}
+
+.payment-detail-row.total strong {
+    color: #168c42;
+    font-size: 17px;
+}
+
+.transaction-code {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    max-width: 65%;
+}
+
+.transaction-code strong {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.copy-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: transparent;
+    padding: 5px;
+    cursor: pointer;
+    color: #168c42;
+    border-radius: 5px;
+    transition: 0.2s ease;
+}
+
+.copy-button:hover {
+    background: #e4f7eb;
+}
+
+.copy-button:active {
+    transform: scale(0.9);
+}
+
 @keyframes payment-spin {
   to { transform: rotate(360deg); }
 }

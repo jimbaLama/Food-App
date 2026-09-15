@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { StoreContext } from "../../context/StoreContext";
 import "./Cart.css";
 import { useNavigate } from "react-router-dom";
+import { assets } from "../../assets/assets";
 
 const Cart = () => {
   const { cartItems, food_list, removeFromCart, getTotalCartAmount , url} = useContext(StoreContext);
@@ -30,7 +31,7 @@ const Cart = () => {
                   <p>{cartItems[item._id]}</p>
                   <p>Rs.{item.price * cartItems[item._id]}</p>
                   <p onClick={() => removeFromCart(item._id)} className="cross">
-                    x
+                    <img src={assets.cross_icon} className="cart-cross-icon" alt="" />
                   </p>
                 </div>
                 <hr />
